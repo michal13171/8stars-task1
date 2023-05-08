@@ -46,7 +46,7 @@ module.exports.sockets = {
   // },
 
   beforeConnect: function(handshake, proceed) {
-   console.log('socket connects');
+   //console.log('socket connects');
    return proceed(undefined, true);
   }
   /***************************************************************************

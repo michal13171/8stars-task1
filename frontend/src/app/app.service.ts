@@ -8,17 +8,18 @@ export class BaseService {
   constructor() {
     const io = sails(socketClient);
     io.sails.url = "http://localhost:1337";
+    io.sails.autoconnect = true;
     this.socket = io.socket;
   }
 
-  public get(url: string, body: any) {
+  public get(url: string, body?: any): Promise<any> {
     return new Promise((ok, fail) => {
       this.socket.get(url, body, (response: any, JWR: any) => {
-        if(JWR.statusCode >= 400) {
+        if (JWR.statusCode >= 400) {
           fail(JWR);
         } else {
           ok(response);
-        }        
+        }
       });
     });
   }
