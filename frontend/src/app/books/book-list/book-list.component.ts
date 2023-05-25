@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import { BookService, Book } from "../book.service";
 @Component({
   selector: "app-book-list",
@@ -8,6 +8,7 @@ import { BookService, Book } from "../book.service";
 export class BookListComponent implements OnInit {
   books: Book[] = [];
   selectedBook;
+
   constructor(private bookService: BookService) {}
 
   async ngOnInit() {

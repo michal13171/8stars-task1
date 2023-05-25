@@ -1,36 +1,39 @@
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Publication Year</th>
-  </tr>
-  <tr>
-    <td colspan="3">
-      <hr />
-    </td>
-  </tr>
-  <ng-container *ngFor="let book of books">
-    <tr (click)="select(book.id)">
-      <td>
-        {{ book.title }}
-      </td>
-      <td>
-        {{ book.author }}
-      </td>
-      <td>
-        {{ book.publicationYear }}
-      </td>
-    </tr>
-    <tr *ngIf="selectedBook === book.id">
-      <td class="details" colspan="3">
-        <app-book-item></app-book-item>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <hr />
-      </td>
-    </tr>
-  </ng-container>
-</table>
-
+    <table>
+        <tr>
+            <th>Ids</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publication Year</th>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <hr/>
+            </td>
+        </tr>
+        <ng-container *ngFor="let book of books">
+            <tr *ngIf="selectedBook !== book.id" (click)="select(book.id)">
+                <td>
+                    {{ book.id }}
+                </td>
+                <td>
+                    {{ book.title }}
+                </td>
+                <td>
+                    {{ book.author }}
+                </td>
+                <td>
+                    {{ book.publicationYear }}
+                </td>
+            </tr>
+            <tr *ngIf="selectedBook === book.id">
+                <td class="details" colspan="3">
+                    <app-book-item [getBook]="book"></app-book-item>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <hr/>
+                </td>
+            </tr>
+        </ng-container>
+    </table>

@@ -1,4 +1,19 @@
 <div>
-   Book data here
+   book data here
+   <p>
+      {{ getBook.id }}
+   </p>
+   <p>
+      {{ getBook.title }}
+   </p>
+   <p>
+      {{ getBook.author }}
+   </p>
+   <p>
+      {{ getBook.publicationYear }}
+   </p>
+   <p>
+      {{ getBook.description }}
+   </p>
 </div>
-<button>Add to basket</button>
+<button type="button" (click)="addToBasketData(getBook)">Add to basket</button>
